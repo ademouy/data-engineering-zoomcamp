@@ -39,11 +39,11 @@ gsutil 5.5
 ### Google Cloud SDK Authentication 
 
 * Now create a service account and generate keys like shown in the videos
-* Download the key and put it to some location, e.g. `.gc/ny-rides.json`
+* Download the key and put it to some location, e.g. `.gc/ny-rides-alex-6a64171f2e53.json`
 * Set `GOOGLE_APPLICATION_CREDENTIALS` to point to the file
 
 ```bash
-export GOOGLE_APPLICATION_CREDENTIALS=~/.gc/ny-rides.json
+export GOOGLE_APPLICATION_CREDENTIALS=~/.gc/ny-rides-alex-6a64171f2e53.json
 ```
 
 Now authenticate: 
@@ -87,7 +87,7 @@ Optionally you can configure your terraform files (`variables.tf`) to include yo
 ```bash
 variable "project" {
   description = "Your GCP Project ID"
-  default = "ny-rides-alexey"
+  default = "ny-rides-alex"
   type = string
 }
 ```
