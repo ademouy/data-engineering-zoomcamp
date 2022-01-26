@@ -9,10 +9,8 @@ Install Google Cloud SDK. What's the version you have?
 
 To get the version, run `gcloud --version`
 
-Answer:
+Answer: 370.0.0
 ```
-Google Cloud SDK 370.0.0
-
 Output:
 
 (base) ademouy@de-zoomcamp:~/data-engineering-zoomcamp/week_1_basics_n_setup$ gcloud --version
@@ -155,7 +153,7 @@ How many taxi trips were there on January 15?
 Consider only trips that started on January 15.
 
 
-Answer: 
+Answer: 53,024
 ```
 SELECT COUNT(1) 
 	FROM yellow_taxi_data
@@ -177,7 +175,7 @@ Use the pick up time for your calculations.
 
 (note: it's not a typo, it's "tip", not "trip")
 
-Answer: 
+Answer: 2021-01-20
 ```
 SELECT tpep_pickup_datetime, MAX(tip_amount) 
     FROM yellow_taxi_data 
@@ -201,7 +199,7 @@ Use the pick up time for your calculations.
 
 Enter the zone name (not id). If the zone name is unknown (missing), write "Unknown" 
 
-Answer: 
+Answer: Upper East Side North
 ```
 SELECT t."DOLocationID", z."Zone", COUNT(z."Zone")
 	FROM yellow_taxi_data t
@@ -232,7 +230,7 @@ For example:
 
 If any of the zone names are unknown (missing), write "Unknown". For example, "Unknown / Clinton East". 
 
-Answer:
+Answer: Alphabet City / Unknown
 ```
 SELECT "PULocationID", "DOLocationID", AVG(total_amount)
   FROM yellow_taxi_data
