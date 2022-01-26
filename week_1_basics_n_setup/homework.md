@@ -10,7 +10,7 @@ Install Google Cloud SDK. What's the version you have?
 To get the version, run `gcloud --version`
 
 Answer:
-
+```
 Google Cloud SDK 370.0.0
 
 Output:
@@ -24,7 +24,7 @@ core 2022.01.21
 gsutil 5.6
 minikube 1.24.0
 skaffold 1.35.1
-
+```
 ## Google Cloud account 
 
 Create an account in Google Cloud and create a project.
@@ -45,7 +45,7 @@ Apply the plan and copy the output (after running `apply`) to the form.
 It should be the entire output - from the moment you typed `terraform init` to the very end.
 
 Answer:
-
+```
 (base) ademouy@de-zoomcamp:~/data-engineering-zoomcamp/week_1_basics_n_setup/1_terraform_gcp/terraform$ terraform apply
 var.project
   Your GCP Project ID
@@ -128,7 +128,7 @@ google_bigquery_dataset.dataset: Creation complete after 1s [id=projects/ny-ride
 google_storage_bucket.data-lake-bucket: Creation complete after 2s [id=dtc_data_lake_ny-rides-alex]
 
 Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
-
+```
 
 ## Prepare Postgres 
 
@@ -154,8 +154,9 @@ How many taxi trips were there on January 15?
 
 Consider only trips that started on January 15.
 
-Answer: 
 
+Answer: 
+```
 SELECT COUNT(1) 
 	FROM yellow_taxi_data
 	WHERE tpep_pickup_datetime::date = '2021-01-15';
@@ -165,6 +166,7 @@ Output:
 | count |
 |-------|
 | 53024 |
+```
 
 ## Question 4. Largest tip for each day
 
@@ -176,7 +178,7 @@ Use the pick up time for your calculations.
 (note: it's not a typo, it's "tip", not "trip")
 
 Answer: 
-
+```
 SELECT tpep_pickup_datetime, MAX(tip_amount) 
     FROM yellow_taxi_data 
     GROUP BY 1
@@ -184,10 +186,11 @@ SELECT tpep_pickup_datetime, MAX(tip_amount)
 
 Output:
 
-+----------------------+---------+
+|----------------------|---------|
 | tpep_pickup_datetime | max     |
-|----------------------+---------|
+|----------------------|---------|
 | 2021-01-20 11:22:05  | 1140.44 |
+```
 
 ## Question 5. Most popular destination
 
@@ -199,7 +202,7 @@ Use the pick up time for your calculations.
 Enter the zone name (not id). If the zone name is unknown (missing), write "Unknown" 
 
 Answer: 
-
+```
 SELECT t."DOLocationID", z."Zone", COUNT(z."Zone")
 	FROM yellow_taxi_data t
 	LEFT JOIN zones z
@@ -210,11 +213,11 @@ SELECT t."DOLocationID", z."Zone", COUNT(z."Zone")
 
 Output:
 
-+--------------+-----------------------+-------+
+|--------------|-----------------------|-------|
 | DOLocationID | Zone                  | count |
-|--------------+-----------------------+-------|
-| 236          | Upper East Side North | 73700 
-
+|--------------|-----------------------|-------|
+| 236          | Upper East Side North | 73700 |
+```
 
 ## Question 6. Most expensive locations
 
@@ -230,7 +233,7 @@ For example:
 If any of the zone names are unknown (missing), write "Unknown". For example, "Unknown / Clinton East". 
 
 Answer:
-
+```
 SELECT "PULocationID", "DOLocationID", AVG(total_amount)
   FROM yellow_taxi_data
   GROUP BY 1, 2
@@ -255,7 +258,7 @@ SELECT "LocationID", "Zone"
 | 4          | Alphabet City |
 | 265        | <null>        |
 +------------+---------------+
-
+```
 ## Submitting the solutions
 
 * Form for submitting: https://forms.gle/yGQrkgRdVbiFs8Vd7
